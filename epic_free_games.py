@@ -19,10 +19,10 @@ def epic():
     items = soup.find_all('div', {"data-component":"WithClickTrackingComponent"})
     new_epic_game = ''
     for i in items:
-        item_link = i.find('a').get('href')
-        item_img = i.find('img').get('data-image')
+        item_link = i.find('a').get('href') # Link game to site
+        item_img = i.find('img').get('data-image') #Link image
         item_message = i.find('span', {"data-component":"Message"}).text
-        item_name = i.find('span', {"data-component": "OfferTitleInfo"}).text
+        item_name = i.find('span', {"data-component": "OfferTitleInfo"}).text # Name game
         s = (f"<a href=\"{item_img}\">&#8203;</a>\n{item_message} - <a href=\"{host}{item_link}\"><b>{item_name}</b></a>\n")
         new_epic_game += s
     return new_epic_game
