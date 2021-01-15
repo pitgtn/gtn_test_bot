@@ -40,5 +40,5 @@ def welcome(message):
 		parse_mode='html')
 
 
-# RUN
+#RUN
 bot.polling(none_stop=True)
