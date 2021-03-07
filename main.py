@@ -16,7 +16,7 @@ def help_msg(message):
 
 @bot.message_handler(commands=['epic'])
 def epic_msg(message):
-	games = epic_query_lib.query_epic_games()
+	games = epic_query_lib.query_epic_games(cached_game_infos)
 	pretty = ""
 	for game in games:
 		pretty += game.pretty_print_me()
@@ -32,5 +32,5 @@ def welcome(message):
 		parse_mode='html')
 
 if __name__ == '__main__':
-	egs = epic_query_lib.query_epic_games()
+	cached_game_infos = epic_query_lib.query_epic_games([])
 	bot.polling(none_stop=True)
