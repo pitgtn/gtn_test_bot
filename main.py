@@ -33,4 +33,4 @@ def welcome(message):
 
 if __name__ == '__main__':
 	cached_game_infos = epic_query_lib.query_epic_games([])
-	bot.polling(none_stop=True)
+	bot.polling(none_stop=True, timeout=120)
