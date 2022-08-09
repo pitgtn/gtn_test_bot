@@ -1,6 +1,8 @@
 from telebot import TeleBot
 from config import TOKEN
 from libs.epic_query_lib import query_epic_games
+import time
+
 
 bot = TeleBot(TOKEN)
 
@@ -29,13 +31,28 @@ def epic_msg(message):
 
 @bot.message_handler(commands=['start'])
 def welcome(message):
-	sti = open('static/welcome.webp', 'rb')
+	sti = open('staticcccc/wwelcome.webp', 'rb')
 	bot.send_sticker(message.chat.id, sti)
 
 	bot.send_message(message.chat.id, "Добро пожаловать, {0.first_name}!\nЯ - <b>{1.first_name}</b>, бот созданный чтобы быть подопытным кроликом.".format(message.from_user, bot.get_me()),
 		parse_mode='html')
 
 
+# if __name__ == '__main__':
+# 	cached_game_infos = query_epic_games([])
+# 	bot.polling(none_stop=True, timeout=120)
+
 if __name__ == '__main__':
+	tim=time
+	with open('log_bot', 'a') as f:
+		f.write(f'{time} \n')
+	f.close()
 	cached_game_infos = query_epic_games([])
-	bot.infinity_polling(none_stop=True, timeout=120)
+	while True:
+		try:
+			bot.polling(none_stop=True, timeout=120)
+		except Exception as e:
+			time.sleep(3)
+			with open('log_bot', 'a') as f:
+				f.write(f'{e} \n')
+			f.close()
