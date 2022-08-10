@@ -31,7 +31,7 @@ def epic_msg(message):
 
 @bot.message_handler(commands=['start'])
 def welcome(message):
-	sti = open(f'/static/welcome.webp', 'rb')
+	sti = open(f'static/welcome.webp', 'rb')
 	bot.send_sticker(message.chat.id, sti)
 
 	bot.send_message(message.chat.id, "Добро пожаловать, {0.first_name}!\nЯ - <b>{1.first_name}</b>, бот созданный чтобы быть подопытным кроликом.".format(message.from_user, bot.get_me()),
@@ -43,7 +43,7 @@ def run_bot():
 		bot.polling(none_stop=True, timeout=120)
 	except Exception as e:
 		current_date = datetime.now().date()
-		with open(f'/log_bot_{current_date}.txt', 'a') as f:
+		with open(f'log_bot_{current_date}.txt', 'a') as f:
 			f.write(f'{e} \n')
 		f.close()
 		time.sleep(5)
