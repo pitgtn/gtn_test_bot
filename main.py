@@ -11,7 +11,7 @@ directory_path = os.getcwd()
 
 @bot.message_handler(commands=['ts'])
 def ts_msg(message):
-	bot.send_message(message.chat.id, "79.173.84.84 - адрес сервера TS3\n".format(message.from_user, bot.get_me()),
+	bot.send_message(message.chat.id, "79.173.84.84 - адрес сервера TS3\n".format(message.from_user, bot.get_me()) + directory_path,
 		parse_mode='html')
 
 
