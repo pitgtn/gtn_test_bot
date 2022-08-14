@@ -1,4 +1,4 @@
 venv/
 .idea/
 /config.py
-/log_bot
+/log_bot_*.txt

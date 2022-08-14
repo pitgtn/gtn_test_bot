@@ -47,10 +47,10 @@ def run_bot():
 			f.write(f'{e} \n')
 		f.close()
 		time.sleep(5)
-	run_bot()
 
 
 if __name__ == '__main__':
 	cached_game_infos = query_epic_games([])
-	run_bot()
+	while True:
+		run_bot()
 
